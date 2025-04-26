@@ -7,6 +7,7 @@ namespace HelpApp.Domain.Test
     public class ProductUnitTest
     {
         #region Testes Positivos
+        #region Teste Entidade
         [Fact(DisplayName ="Create Product With Parameters Full")]
         public void CreateProduct_WithValidParameters_ResultObjectValisState()
         {
@@ -18,6 +19,10 @@ namespace HelpApp.Domain.Test
             action.Should()
                 .NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
         }
+        #endregion
+        #region Teste Repositorio
+
+        #endregion
         #endregion
         #region Testes Negativos
         [Fact(DisplayName ="Create Product With ID Negative")]
