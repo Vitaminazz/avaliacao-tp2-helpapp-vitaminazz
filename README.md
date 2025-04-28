@@ -56,12 +56,12 @@ Insira prints aqui comprovando:
 ![Screenshot_197](https://github.com/user-attachments/assets/155b5412-704c-4fed-a099-3b4e5313be2c)
 
 # 👨‍💻 Dados do aluno
-Nome: [Seu Nome Aqui]
+Nome: Victor Henrique dos Santos Freitas (Vitaminazz)
 Curso: Desenvolvimento de Sistemas – 3º Semestre
 
 Professor: Victor Icoma
 
-Branch da entrega: avaliacao-githubaluno
+Branch da entrega: avaliacao-Vitainazz
 
 ## 🧱 Estrutura da aplicação
 
