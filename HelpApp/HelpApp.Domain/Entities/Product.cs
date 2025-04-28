@@ -27,7 +27,16 @@ namespace HelpApp.Domain.Entities
             ValidateDomain(name, description, price, stock, image);
         }
 
+        public void Update(string name, string description, decimal price, int stock, string image)
+        {
+            ValidateDomain (name, description, price, stock, image);
 
+            Name = name;
+            Description = description;
+            Price = price;
+            Stock = stock;
+            Image = image;
+        }
 
         public Category Category { get; set; }
 

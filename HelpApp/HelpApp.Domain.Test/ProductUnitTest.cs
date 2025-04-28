@@ -7,7 +7,6 @@ namespace HelpApp.Domain.Test
     public class ProductUnitTest
     {
         #region Testes Positivos
-        #region Teste Entidade
         [Fact(DisplayName ="Create Product With Parameters Full")]
         public void CreateProduct_WithValidParameters_ResultObjectValisState()
         {
@@ -19,11 +18,51 @@ namespace HelpApp.Domain.Test
             action.Should()
                 .NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
         }
-        #endregion
-        #region Teste Repositorio
+        [Fact(DisplayName = "Read Product With Valid State")]
 
+        public void ReadProduct_WithValidParameters_ResultObjectValidState()
+        {
+            var product = new Product(1, "Product Vitas", "Vitas", 9.99m, 99, "imagem");
+
+            Action actionID = () => product.Id.Should().Be(1);
+            actionID.Should().NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
+
+            Action actionNAME = () => product.Name.Should().Be("Product Vitas");
+            actionNAME.Should().NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
+
+            Action actionDESC = () => product.Description.Should().Be("Vitas");
+            actionDESC.Should().NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
+        }
+
+        [Fact(DisplayName = "Update Product With Valid State")]
+
+        public void UpdateProduct_WithValidParameters_ResultObjectValidState()
+        {
+            var product = new Product(1, "Product Vitas", "Vitas", 9.99m, 99, "imagem");
+
+            Action action = () => product.Update("Product Vitas2", "Vitas2", 9.98m, 98, "imagem2");
+            action.Should().NotThrow<HelpApp.Domain.Validation.DomainExceptionValidation>();
+
+            product.Name.Should().Be("Product Vitas2");
+            product.Description.Should().Be("Vitas2");
+            product.Price.Should().Be(9.98m);
+            product.Stock.Should().Be(98);
+            product.Image.Should().Be("imagem2");
+
+        }
+
+        [Fact(DisplayName = "Delete Product With Valid State")]
+
+        public void DeleteProduct_WithValidParameters_ResultObjectDeleted()
+        {
+            var product = new Product(1, "Product Vitas", "Vitas", 9.99m, 99, "imagem");
+
+            Action action = () => { product = null; };
+            action.Should().NotThrow<Exception>();
+            product.Should().BeNull();
+        }
         #endregion
-        #endregion
+
         #region Testes Negativos
         [Fact(DisplayName ="Create Product With ID Negative")]
         public void CreateProduct_NegativeIdValue_DomainExceptionInvalidId()

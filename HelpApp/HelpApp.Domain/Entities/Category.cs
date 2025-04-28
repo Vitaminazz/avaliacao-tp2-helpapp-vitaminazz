@@ -21,9 +21,15 @@ namespace HelpApp.Domain.Entities
             Id = id;
             ValidateDomain(name);
         }
-
+        public void Update(string name)
+        {
+            ValidateDomain(name);
+            Name = name;
+        }
         public ICollection<Product> Products { get; set; }
         #endregion
+
+
 
         #region Validação
         private void ValidateDomain(string name)
